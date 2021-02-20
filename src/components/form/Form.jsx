@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Input } from "./input/Input";
 import matrixActions from "./../../redux/matrix/matrixActions";
 import { Button } from "./input/Button";
+import styles from "./form.module.css";
 
 const inputsArray = [
   {
@@ -35,7 +36,7 @@ const Form = ({
   inputsArray[1].value = columnsNumber;
   return (
     <>
-      <form className="main-form">{inputsArray.map(inputField)}</form>
+      <form className={styles.form}>{inputsArray.map(inputField)}</form>
       {matrix.length > 0 ? (
         <>
           <Button handleClick={onIncrement} name="Add new row" />

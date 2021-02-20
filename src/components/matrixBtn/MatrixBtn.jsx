@@ -4,21 +4,16 @@ import store from "./../../redux/store";
 import matrixActions from "./../../redux/matrix/matrixActions";
 import styles from "./matrixBtn.module.css";
 
-const MatrixBtn = ({
-  matrix,
-  Amount,
-  id,
-  percentage,
-}) => {
+const MatrixBtn = ({ matrix, Amount, id, percentage }) => {
   const [isPercentageShow, setPercentageShow] = useState(false);
 
   const percentageToSrt = (percent) => `${Number(percent * 100).toFixed(1)}%`;
 
   const percentageStyle = {
-    backgroundImage: `linear-gradient(to top, blue 0% ${percentageToSrt(
+    backgroundImage: `linear-gradient(to top, red 0% ${percentageToSrt(
       percentage
-    )}, lemonchiffon ${percentageToSrt(percentage)} 100%)`,
-    color: "white",
+    )}, white ${percentageToSrt(percentage)} 100%)`,
+    color: "black",
   };
 
   const onClickMatrixBtn = (id) => {
@@ -35,16 +30,15 @@ const MatrixBtn = ({
     <button
       type="button"
       style={isPercentageShow ? percentageStyle : {}}
+      className={styles.btn}
       onClick={() => onClickMatrixBtn(id)}
       onMouseEnter={onMouseEnterHandler}
       onMouseLeave={onMouseLeaveHandler}
     >
       {isPercentageShow ? (
-        <span className="matrix__button-text">
-          {percentageToSrt(percentage)}
-        </span>
+        <span>{percentageToSrt(percentage)}</span>
       ) : (
-        <span className="matrix__button-text">{Amount}</span>
+        <span>{Amount}</span>
       )}
     </button>
   );
