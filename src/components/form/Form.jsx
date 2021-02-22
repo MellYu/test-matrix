@@ -30,7 +30,7 @@ const Form = ({
   rowsNumber,
   matrix,
   onIncrement,
-  onDecrement,
+  onDecrement
 }) => {
   inputsArray[0].value = rowsNumber;
   inputsArray[1].value = columnsNumber;
@@ -60,4 +60,5 @@ const mapDispatchToProps = {
   onIncrement: matrixActions.addNewRowAct,
   onDecrement: matrixActions.deleteRow,
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Form);

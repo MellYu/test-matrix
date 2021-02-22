@@ -1,4 +1,4 @@
-import React, { useEffect, useDispatch } from "react";
+import React, { useEffect, useDispatch, Fragment } from "react";
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import MatrixBtn from "../matrixBtn/MatrixBtn";
@@ -62,7 +62,7 @@ const Matrix = ({ columnsNumber, matrix, rowsNumber }) => {
     <div className={styles.matrix} style={gridShape}>
       {matrix.map((item, index) =>
         index % columnsNumber === columnsNumber - 1 ? (
-          <>
+          <Fragment key={uuidv4()}>
             <MatrixBtn
               key={item.id}
               matrixItem={item}
@@ -74,10 +74,10 @@ const Matrix = ({ columnsNumber, matrix, rowsNumber }) => {
               key={uuidv4()}
               amount={rowTotal[Math.floor(index / columnsNumber)]}
             />
-          </>
+          </Fragment>
         ) : (
           <MatrixBtn
-            key={item.ID}
+            key={item.id}
             matrixItem={item}
             percentage={
               item.Amount / rowTotal[Math.floor(index / columnsNumber)]

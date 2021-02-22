@@ -6,7 +6,6 @@ const addRowQuantity = (state, action) => {
 };
 
 const addNewRow = (state, action) => {
-  console.log(action);
   return { ...state, rowsNumber: state.rowsNumber + 1 };
 };
 
